@@ -46,3 +46,33 @@ kits.getId = function () {
   let id = time + '' + r;
   return id;
 }
+
+
+//随机获取一个十六进制的颜色
+kits.randomHexColor = function () {
+  let str = "#";
+  //定义一个十六进制的数组
+  let arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+  for (let i = 0; i < 6; i++) {
+    //通过随机数生成索引，根据索引找到数组中对应的值然后拼接一起
+    let num = parseInt(Math.random() * 16);
+    str += arr[num];
+  }
+  return str;
+}
+
+
+//获取n-m之间的随机整数
+kits.random = function (n, m) {
+  let result = Math.floor(Math.random() * (m - n + 1) + n);
+  return result;
+}
+
+
+// 随机获取一个rgb颜色
+kits.randomColor = function () {
+  let r = kits.random(0, 255);
+  let g = kits.random(0, 255);
+  let b = kits.random(0, 255);
+  return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
